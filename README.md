@@ -58,7 +58,6 @@ git clone https://github.com/Tejasree-349/Supply-Chain-Disruption-Predictor.git
 cd Supply-Chain-Disruption-Predictor
 ```
 
-
 Create a virtual environment:
 
 ```
