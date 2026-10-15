@@ -43,7 +43,7 @@ DATA_PATH = RAW_DATA_PATH
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
 st.set_page_config(
-    page_title="NEXUS | Supply Chain Intelligence",
+    page_title="Supply Chain Intelligence",
     page_icon="📦",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -360,7 +360,6 @@ with st.sidebar:
         <div style="padding:12px 0 22px 0;">
             <div style="font-size:11px;color:#75e0c3;
                         letter-spacing:3px;font-weight:800;">
-                NEXUS AI
             </div>
             <div style="font-size:22px;font-weight:800;
                         color:#ffffff;margin-top:5px;">
@@ -1633,7 +1632,7 @@ elif page == "Prediction Lab":
 st.markdown(
     """
     <div class="footer">
-        NEXUS Supply Chain Intelligence |
+        Supply Chain Intelligence |
         Machine-learning estimates are not guaranteed outcomes.
     </div>
     """,
