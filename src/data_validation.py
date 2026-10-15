@@ -5,10 +5,6 @@ from src.config import TARGET_COLUMN
 
 def validate_data(df):
 
-    """
-    Validate the structure and target
-    of the supply chain dataset.
-    """
 
     if df.empty:
 

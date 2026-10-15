@@ -6,16 +6,14 @@ from src.config import TARGET_COLUMN, LEAKAGE_COLUMNS
 def clean_data(df):
     df = df.copy()
 
-    # Step 1: Check whether the target column exists
     if TARGET_COLUMN not in df.columns:
         raise ValueError(
             f"Target column '{TARGET_COLUMN}' is missing."
         )
 
-    # Step 2: Remove rows without a target label
     df = df.dropna(subset=[TARGET_COLUMN])
 
-    # Step 3: Ensure the target column contains binary values
+
     df[TARGET_COLUMN] = pd.to_numeric(
         df[TARGET_COLUMN],
         errors="raise"
@@ -26,11 +24,8 @@ def clean_data(df):
             "Target must contain only 0 and 1."
         )
 
-    # Step 4: Remove exact duplicate records
     df = df.drop_duplicates().reset_index(drop=True)
 
-    # Step 5: Remove leakage columns from the dataset,
-    # but NEVER remove the target column here.
     columns_to_drop = [
         column
         for column in LEAKAGE_COLUMNS
@@ -39,7 +34,6 @@ def clean_data(df):
 
     df = df.drop(columns=columns_to_drop)
 
-    # Step 6: Confirm the target is still present
     if TARGET_COLUMN not in df.columns:
         raise ValueError(
             f"Target column '{TARGET_COLUMN}' was removed "

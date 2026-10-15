@@ -54,26 +54,13 @@ TARGET_VALUES = [0, 1]
 # DATA SPLITTING CONFIGURATION
 # ============================================================
 
-# Reproducibility
+
 RANDOM_STATE = 42
 
-# Test set proportion
 TEST_SIZE = 0.20
 
-# Validation set proportion
 VALIDATION_SIZE = 0.20
 
-
-# ============================================================
-# DATA LEAKAGE CONFIGURATION
-# ============================================================
-
-# These columns should not be used as input features when
-# predicting delivery risk before shipment or delivery.
-#
-# NOTE:
-# Keep this list aligned with the columns present in the dataset.
-# The target column is excluded separately as well.
 
 LEAKAGE_COLUMNS = [
     "Days_for_shipping_(real)",
@@ -93,9 +80,6 @@ MODEL_NAMES = [
     "Gradient Boosting",
 ]
 
-# Probability thresholds for dashboard risk categories.
-# These are presentation thresholds, not calibrated business
-# thresholds. Tune them using validation data before deployment.
 
 HIGH_RISK_THRESHOLD = 0.75
 MEDIUM_RISK_THRESHOLD = 0.40
@@ -105,22 +89,21 @@ MEDIUM_RISK_THRESHOLD = 0.40
 # OUTPUT FILE PATHS
 # ============================================================
 
-# Model evaluation results
 EVALUATION_REPORT_PATH = (
     REPORT_DIR / "model_evaluation.csv"
 )
 
-# Held-out test dataset
+
 TEST_DATA_PATH = (
     REPORT_DIR / "test_data.csv"
 )
 
-# Feature importance results
+
 FEATURE_IMPORTANCE_PATH = (
     REPORT_DIR / "permutation_importance.csv"
 )
 
-# Optional prediction results
+
 PREDICTIONS_PATH = (
     REPORT_DIR / "predictions.csv"
 )
@@ -130,8 +113,6 @@ PREDICTIONS_PATH = (
 # MODEL ARTIFACT PATHS
 # ============================================================
 
-# These filenames are the expected names.
-# Your training script must save models using these names.
 
 LOGISTIC_REGRESSION_MODEL_PATH = (
     MODEL_DIR / "logistic_regression.joblib"

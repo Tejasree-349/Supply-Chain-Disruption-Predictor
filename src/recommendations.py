@@ -1,10 +1,5 @@
 def generate_recommendation(risk_probability):
-    """
-    Convert a predicted probability into an operational suggestion.
 
-    The thresholds are initial business rules and should be calibrated
-    against validation results and actual operational costs.
-    """
 
     if not 0 <= risk_probability <= 1:
         raise ValueError(

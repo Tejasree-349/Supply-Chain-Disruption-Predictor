@@ -130,8 +130,6 @@ def train_models():
 
         print(f"Saved model: {model_path}")
 
-    # Store the test split for the evaluation module.
-    # Save only for local workflow; avoid publishing sensitive records.
     test_data_path = REPORT_DIR / "test_data.csv"
 
     test_output = X_test.copy()

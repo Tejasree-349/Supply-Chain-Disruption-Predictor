@@ -35,7 +35,6 @@ def engineer_features(df):
                 errors="coerce",
             )
 
-    # Extract order date features only if the source column exists.
     order_date_column = "order_date_(DateOrders)"
 
     if order_date_column in df.columns:
@@ -45,7 +44,7 @@ def engineer_features(df):
             df[order_date_column].dt.dayofweek
         )
 
-    # Remove original datetime columns after extraction.
+
     existing_date_columns = [
         column for column in DATE_COLUMNS
         if column in df.columns
@@ -56,7 +55,6 @@ def engineer_features(df):
         errors="ignore",
     )
 
-    # Remove identifiers and sensitive customer fields.
     existing_identifiers = [
         column for column in IDENTIFIER_COLUMNS
         if column in df.columns
@@ -67,7 +65,6 @@ def engineer_features(df):
         errors="ignore",
     )
 
-    # Ensure the target remains available.
     if TARGET_COLUMN not in df.columns:
         raise ValueError("Target column missing after feature engineering.")
 

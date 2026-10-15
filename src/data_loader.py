@@ -5,10 +5,6 @@ from src.config import RAW_DATA_PATH
 
 def load_data():
 
-    """
-    Load the raw supply chain dataset.
-    """
-
     if not RAW_DATA_PATH.exists():
 
         raise FileNotFoundError(
